@@ -12,9 +12,6 @@ const Navigation: React.FC = () => {
                         <Link href="/">
                             <Button variant="outline">Dashboard</Button>
                         </Link>
-                        <Link href="/dashboard">
-                            <Button variant="outline">Original View</Button>
-                        </Link>
                     </div>
                     <div className="text-sm text-muted-foreground">
                         Geo-Tagging Company Management System

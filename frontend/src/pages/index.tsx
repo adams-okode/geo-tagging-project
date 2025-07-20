@@ -77,10 +77,10 @@ const Home: React.FC = () => {
                 {/* Header */}
                 <header className="bg-white border-b border-border">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex justify-between items-center py-6">
+                        <div className="flex justify-between items-center py-2">
                             <div>
                                 <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
-                                    <Globe className="w-8 h-8 text-primary" />
+                                    <Globe className="w-4 h-4 text-primary" />
                                     Company Dashboard
                                 </h1>
                                 <p className="mt-1 text-sm text-muted-foreground">
@@ -99,44 +99,35 @@ const Home: React.FC = () => {
                 </header>
 
                 {/* Main Content */}
-                <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                    <Navigation />
+                <main className="max-w-full mx-auto px-0 sm:px-0 lg:px-0 py-0">
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-[calc(100vh-200px)]">
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 h-[calc(100vh-61px)]">
                         {/* Map Section - Left Side */}
-                        <div className="lg:col-span-2">
-                            <Card className="h-full">
-                                <CardHeader>
-                                    <CardTitle className="flex items-center gap-2">
-                                        <MapPin className="w-5 h-5" />
-                                        Company Locations
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent className="p-0 h-full">
-                                    {isLoading ? (
-                                        <div className="flex items-center justify-center h-full bg-muted rounded-lg">
-                                            <div className="text-muted-foreground">Loading companies...</div>
+                        <div className="lg:col-span-3">
+
+                            {isLoading ? (
+                                <div className="flex items-center justify-center h-full bg-muted rounded-lg">
+                                    <div className="text-muted-foreground">Loading companies...</div>
+                                </div>
+                            ) : companies.length === 0 ? (
+                                <div className="flex items-center justify-center h-full bg-muted rounded-lg">
+                                    <div className="text-center">
+                                        <Building2 className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                                        <div className="text-muted-foreground mb-2">No companies found</div>
+                                        <div className="text-sm text-muted-foreground">
+                                            Add a company using the button above to see it on the map
                                         </div>
-                                    ) : companies.length === 0 ? (
-                                        <div className="flex items-center justify-center h-full bg-muted rounded-lg">
-                                            <div className="text-center">
-                                                <Building2 className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                                                <div className="text-muted-foreground mb-2">No companies found</div>
-                                                <div className="text-sm text-muted-foreground">
-                                                    Add a company using the button above to see it on the map
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ) : (
-                                        <div className="h-full">
-                                            <CompanyMap
-                                                companies={companies}
-                                                onMarkerClick={handleMarkerClick}
-                                            />
-                                        </div>
-                                    )}
-                                </CardContent>
-                            </Card>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="h-full">
+                                    <CompanyMap
+                                        companies={companies}
+                                        onMarkerClick={handleMarkerClick}
+                                    />
+                                </div>
+                            )}
+
                         </div>
 
                         {/* Company List Section - Right Side */}
