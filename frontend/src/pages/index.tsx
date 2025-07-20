@@ -139,42 +139,6 @@ const Home: React.FC = () => {
                             />
                         </div>
                     </div>
-
-                    {/* Selected Company Details */}
-                    {selectedCompany && (
-                        <div className="mt-8">
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="flex items-center gap-2">
-                                        <Building2 className="w-5 h-5" />
-                                        Selected Company Details
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                        <div>
-                                            <p className="text-sm text-muted-foreground">Company Name</p>
-                                            <p className="font-semibold">{selectedCompany.name}</p>
-                                        </div>
-                                        <div>
-                                            <p className="text-sm text-muted-foreground">Industry</p>
-                                            <Badge variant="secondary">{selectedCompany.industry}</Badge>
-                                        </div>
-                                        <div>
-                                            <p className="text-sm text-muted-foreground">Location</p>
-                                            <p className="font-semibold">{selectedCompany.location}</p>
-                                        </div>
-                                        <div>
-                                            <p className="text-sm text-muted-foreground">Coordinates</p>
-                                            <p className="font-mono text-sm">
-                                                {selectedCompany.latitude.toFixed(6)}, {selectedCompany.longitude.toFixed(6)}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    )}
                 </main>
 
                 {/* Toast Notifications */}
